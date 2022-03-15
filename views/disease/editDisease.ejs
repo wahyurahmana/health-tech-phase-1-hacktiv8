@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Diseases</title>
+</head>
+<body>
+    <h1>Edit Form Disease</h1>
+    <form action="/disease/edit/<%= disease.id %>" method="post">
+        <input type="text" name="name" placeholder="name Disini" value="<%= disease.name%>">
+        <textarea name="description" cols="30" rows="10" placeholder="description disini"><%= disease.description%></textarea>
+        <button type="submit">updated</button>
+    </form>
+</body>
+</html>
