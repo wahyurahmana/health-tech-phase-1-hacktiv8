@@ -23,7 +23,7 @@ class Controller {
                 include : [Disease]
             })
             .then((result) => {
-                res.send(result)
+                //res.send(result)
                 //res.render('index', {result})
             }).catch((err) => {
                 res.send(err)
@@ -38,7 +38,7 @@ class Controller {
                 include : [Symptom]
             })
             .then((result) => {
-                res.send(result)
+                //res.send(result)
                 //res.render('index', {result})
             }).catch((err) => {
                 res.send(err)
@@ -48,8 +48,8 @@ class Controller {
                 include : [Symptom, Disease]
             })
             .then((result) => {
-                res.send(result)
-                //res.render('index', {result, uname : req.session.username})
+                //res.send(result)
+                res.render('index', {result, uname : req.session.username})
             }).catch((err) => {
                 res.send(err)
             });
