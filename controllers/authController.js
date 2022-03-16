@@ -19,29 +19,40 @@ class Controller {
         res.render('auth/login')
     }
 
-    static login(req, res){
-        let role
-        let uname
+    static login(request, response){
         User.findOne({
             where : {
-                username : req.body.username
+                username : request.body.username
             }
         })
         .then((result) => {
-            role = result.role
-            uname = result.username
-            return bcrypt.compare(req.body.password, result.password)
-        })
-        .then((login)=>{
-            req.session.isLoggedIn = true
-            req.session.role = role
-            req.session.username = uname
-            console.log(req.session, 'dari auth');
-            res.redirect('/')
+            if (result) {
+                bcrypt.compare(request.body.password, result.password, function(err, res) {
+                    if (res) {
+                        request.session.username = result.username
+                        request.session.role = result.role
+                        request.session.isLoggedIn = true
+                        response.redirect('/')
+                    } else {
+                        response.redirect('/auth/login?err=Password Salah')
+                    }
+                });
+            } else {
+                response.redirect('/auth/login?err=Username Salah')
+            }
         })
         .catch((err) => {
-            res.send(err)
+            response.send(err)
         });
+    }
+
+    static logout(req, res){
+        req.session.destroy(err => {
+          if(err) {
+            res.send(err);
+          }
+          res.redirect('/auth/login');
+        })
     }
 }
 
