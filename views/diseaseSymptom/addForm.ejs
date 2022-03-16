@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Disease Symptom</title>
+</head>
+<body>
+    <form action="/symptomDisease/add" method="post">
+        <label>Penyakit</label><br>
+        <select name="DiseaseId">
+            <% disease.forEach(el => { %>
+             <option value="<%= el.id %>"><%= el.name %></option>
+            <% }) %>
+        </select><br><br>
+        <label>Gejala</label><br>
+        <select name="SymptomId">
+            <% symtomp.forEach(el => { %>
+             <option value="<%= el.id %>"><%= el.name %></option>
+            <% }) %>
+        </select><br><br>
+        <button type="submit">Add</button>
+    </form>
+</body>
+</html>

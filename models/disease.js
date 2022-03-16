@@ -11,10 +11,19 @@ module.exports = (sequelize, DataTypes) => {
      */
     static associate(models) {
       // define association here
+      Disease.belongsToMany(models.Symptom, {
+        through : 'SymptomDiseases',
+        foreignKey : 'DiseaseId'
+      })
     }
   }
   Disease.init({
-    name: DataTypes.STRING,
+    name: {
+      type : DataTypes.STRING,
+      validate : {
+        notEmpty : {msg : 'name is required'}
+      }
+    },
     description: DataTypes.TEXT
   }, {
     sequelize,
