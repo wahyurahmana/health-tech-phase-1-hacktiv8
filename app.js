@@ -12,7 +12,6 @@ app.use(express.urlencoded({ extended: true }));
 
 app.get("/", homeController.home);
 
-app.use("/poly", poly);
 app.use('/disease', disease)
 app.use('/symptom', symptom)
 app.use('/symptomDisease', symptomDisease)
