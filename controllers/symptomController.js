@@ -1,4 +1,4 @@
-const { Symptom } = require('../models')
+const { Symptom, Disease } = require('../models')
 
 class Controller {
 
@@ -6,6 +6,17 @@ class Controller {
         Symptom.findAll()
         .then((symptoms) => {
             res.render('symptom/index', {symptoms}) 
+        }).catch((err) => {
+            res.send(err)
+        });
+    }
+
+    static detail(req, res){
+        Symptom.findByPk(+req.params.id,{
+            include : [Disease]
+        })
+        .then((result) => {
+            res.send(result)
         }).catch((err) => {
             res.send(err)
         });

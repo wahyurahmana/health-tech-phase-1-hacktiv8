@@ -7,5 +7,5 @@ router.post("/add", diseaseController.addForm);
 router.get("/edit/:id", diseaseController.getEditForm);
 router.post("/edit/:id", diseaseController.editForm);
 router.get("/delete/:id", diseaseController.deleteDisease);
-
+router.get("/detail/:id", diseaseController.detail)
 module.exports = router;
