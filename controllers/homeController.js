@@ -11,6 +11,7 @@ class Controller {
         // }).catch((err) => {
         //     res.send(err)
         // });
+        //console.log(req.session, 'dari home');
 
         if (req.query.disease) {
             Symptom.findAll({
@@ -47,8 +48,8 @@ class Controller {
                 include : [Symptom, Disease]
             })
             .then((result) => {
-                res.send(result)
-                //res.render('index', {result})
+                //res.send(result)
+                res.render('index', {result, uname : req.session.username})
             }).catch((err) => {
                 res.send(err)
             });
