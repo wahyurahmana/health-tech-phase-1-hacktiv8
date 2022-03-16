@@ -1,8 +1,9 @@
 const express = require("express");
 const poly = require("./routes/poly.js");
-const disease = require('./routes/disease.js')
-const symptom = require('./routes/symptom.js')
-const symptomDisease = require('./routes/symptomDisease.js')
+const disease = require("./routes/disease.js");
+const symptom = require("./routes/symptom.js");
+const symptomDisease = require("./routes/symptomDisease.js");
+const patient = require("./routes/Patient.js");
 
 const app = express();
 const port = 3000;
@@ -15,10 +16,10 @@ app.get("/", (req, res) => {
 });
 
 app.use("/poly", poly);
-app.use('/disease', disease)
-app.use('/symptom', symptom)
-app.use('/symptomDisease', symptomDisease)
-
+app.use("/disease", disease);
+app.use("/symptom", symptom);
+app.use("/symptomDisease", symptomDisease);
+app.use("/patient", patient);
 app.listen(port, () => {
   console.log(`love you ${port}`);
 });
