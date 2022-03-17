@@ -1,7 +1,7 @@
 const router = require("express").Router();
 const authController = require('../controllers/authController.js')
-const isLoggedInTrue = require('../helpers/isLoggedInTrue.js')
-const isLoggedInFalse = require('../helpers/isLoggedInFalse.js')
+const isLoggedInTrue = require('../middlewares/isLoggedInTrue.js')
+const isLoggedInFalse = require('../middlewares/isLoggedInFalse.js')
 
 router.get('/register',isLoggedInFalse, authController.getRegister)
 router.post('/register',isLoggedInFalse, authController.register)

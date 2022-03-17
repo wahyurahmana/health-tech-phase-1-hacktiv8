@@ -1,14 +1,13 @@
 const { Patient, Disease } = require("../models");
 class patientController {
+
   static findAll(req, res) {
-    Patient.findAll({
-      include: [Disease],
-      order: [["createdAt", "DESC"]],
-    })
-      .then((data) => {
-        res.render("patient/showPatient", { data });
-      })
-      .catch((err) => res.send(err));
+    Patient.showPasient(req.session.role)
+    .then((data) => {
+      res.render("patient/showPatient", { data , role :req.session.role});
+    }).catch((err) => {
+      res.send(err)
+    });
   }
 
   static formPatient(req, res) {
@@ -67,6 +66,41 @@ class patientController {
     })
       .then(() => res.redirect("/patient"))
       .catch((err) => res.send(err));
+  }
+
+  static getCheckUp(req, res){
+    Patient.findByPk(+req.params.id)
+    .then((result) => {
+      res.render('patient/checkUp', {data : result})
+    }).catch((err) => {
+      res.send(err)
+    });
+  }
+
+  static checkUp(req, res){
+    Patient.update({status : req.body.status, obat : req.body.obat}, {
+      where : {
+        id : +req.params.id
+      }
+    })
+    .then((result) => {
+      res.redirect('/patient')
+    }).catch((err) => {
+      res.send(err)
+    });
+  }
+
+  static pulang(req, res){
+    Patient.update({status : 'selesai'},{
+      where : {
+        id : +req.params.id
+      }
+    })
+    .then((result) => {
+      res.redirect('/patient')
+    }).catch((err) => {
+      res.send(err)
+    });
   }
 }
 
