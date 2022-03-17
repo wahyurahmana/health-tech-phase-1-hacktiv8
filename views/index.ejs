@@ -1,31 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome To The Health Tech</title>
-</head>
-<body>
-    <%- include ('./partials/navbar') %> 
-    <h1>HELLO <%= uname %> </h1>
-    <p></p>
-    <form action="/" method="get">
-        <input type="text" name="disease" placeholder="Cari Nama Penyakit">
-        <button type="submit">Cari</button>
-    </form>
-    <p></p>
-    <form action="/" method="get">
-        <input type="text" name="symptom" placeholder="Cari Nama Gejala">
-        <button type="submit">Cari</button>
-    </form>
-    <p></p>
-    <table border="1">
-        <tr>
-            <th>Penyakit</th>
-            <th>Gejala</th>
-        </tr>
-        
-    </table>
-</body>
+    <style>
+      .image img {
+        width: 100%;
+        height: 0px auto;
+        opacity: 0.8;
+      }
+    </style>
+    <%- include ('./partials/navbar') %> <%- include ('./partials/header') %>
+  </head>
+  <body>
+    <div class="image">
+      <img
+        src="https://img.freepik.com/free-vector/clean-medical-patterned-background_53876-116871.jpg?w=1380"
+        alt="Background Medical"
+      />
+    </div>
+  </body>
 </html>
