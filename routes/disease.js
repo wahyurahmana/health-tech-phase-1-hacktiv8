@@ -1,6 +1,14 @@
 const router = require("express").Router();
 const diseaseController = require('../controllers/diseaseController.js')
 
+router.use((req, res, next) => {
+    if (req.session.role === 'dokter') {
+        next()
+    }else{
+        res.redirect('/')
+    }
+})
+
 router.get("/", diseaseController.home);
 router.get("/add", diseaseController.getAddForm);
 router.post("/add", diseaseController.addForm);

@@ -29,6 +29,7 @@ class Controller {
             if (result) {
                 bcrypt.compare(request.body.password, result.password, function(err, res) {
                     if (res) {
+                        console.log(result);
                         request.session.username = result.username
                         request.session.role = result.role
                         request.session.isLoggedIn = true
