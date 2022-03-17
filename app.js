@@ -18,7 +18,7 @@ app.use(session({
   resave: false,
   saveUninitialized: false,
   cookie: {
-    maxAge: 60000
+    maxAge: 1.8e6
   }
 }));
 
@@ -31,5 +31,5 @@ app.use("/patient", patient);
 app.use('/auth', auth)
 
 app.listen(port, () => {
-  console.log(`love you ${port}`);
+  console.log(`Server Running On Port ${port}`);
 });

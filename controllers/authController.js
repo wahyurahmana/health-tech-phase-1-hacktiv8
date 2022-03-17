@@ -9,9 +9,9 @@ class Controller {
     static register(req, res){
         User.create(req.body)
         .then((result) => {
-            res.send(result)
+            res.redirect('/auth/login')
         }).catch((err) => {
-            
+            res.send(err)
         });
     }
 

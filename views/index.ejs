@@ -9,5 +9,23 @@
 <body>
     <%- include ('./partials/navbar') %> 
     <h1>HELLO <%= uname %> </h1>
+    <p></p>
+    <form action="/" method="get">
+        <input type="text" name="disease" placeholder="Cari Nama Penyakit">
+        <button type="submit">Cari</button>
+    </form>
+    <p></p>
+    <form action="/" method="get">
+        <input type="text" name="symptom" placeholder="Cari Nama Gejala">
+        <button type="submit">Cari</button>
+    </form>
+    <p></p>
+    <table border="1">
+        <tr>
+            <th>Penyakit</th>
+            <th>Gejala</th>
+        </tr>
+        
+    </table>
 </body>
 </html>

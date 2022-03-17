@@ -7,6 +7,28 @@ module.exports = (sequelize, DataTypes) => {
      * This method is not a part of Sequelize lifecycle.
      * The `models/index` file will call this method automatically.
      */
+    static showPasient(role){
+      let option = {
+        include: [sequelize.models.Disease],
+        order: [["createdAt", "DESC"]]
+      }
+
+      if (role === 'dokter') {
+        option.where = {status : 'pending'}
+      }
+      if(role === 'apotek'){
+        option.where = {status : 'obat'}
+      }
+
+      return new Promise((resolve, reject)=>{
+        Patient.findAll(option)
+          .then((data) => {
+            resolve(data)
+          })
+          .catch((err) => reject(err));
+      })
+    }
+
     static associate(models) {
       // define association here
       Patient.belongsTo(models.Disease);
