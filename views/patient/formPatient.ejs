@@ -37,11 +37,13 @@
       <label>NIK</label>
       <input type="text" name="nik" value="<%= patient ? patient.nik : '' %> " />
 
-      <label>age</label>
+      <label>Age</label>
       <input type="text" name="age" value="<%= patient ? patient.age : '' %> " />
 
-      <label>address</label>
+      <label>Address</label>
       <input type="text" name="address" value="<%= patient ? patient.address : '' %> " />
+
+      <label>Disease</label>
       <select name="DiseaseId">
       <% data.forEach(el => { %>
         <option <%= el.id === patient.id ? "selected" : ''%> value="<%= el.id%>"><%= el.name%> </option>

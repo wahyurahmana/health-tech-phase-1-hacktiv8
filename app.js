@@ -13,16 +13,14 @@ const homeController = require("./controllers/homeController.js");
 app.set("view engine", "ejs");
 app.use(express.urlencoded({ extended: true }));
 
-app.use(
-  session({
-    secret: "supercellAdventures",
-    resave: false,
-    saveUninitialized: false,
-    cookie: {
-      maxAge: 60000,
-    },
-  })
-);
+app.use(session({
+  secret: "supercellAdventures",
+  resave: false,
+  saveUninitialized: false,
+  cookie: {
+    maxAge: 1.8e6
+  }
+}));
 
 app.use("/public", express.static("public"));
 app.get("/", homeController.home);
@@ -33,5 +31,5 @@ app.use("/patient", patient);
 app.use("/auth", auth);
 
 app.listen(port, () => {
-  console.log(`love you ${port}`);
+  console.log(`Server Running On Port ${port}`);
 });
