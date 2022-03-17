@@ -7,6 +7,7 @@
     <title>Edit Symptom</title>
 </head>
 <body>
+    <%- include ('./partials/navbar') %>
     <h1>Edit Form Symptom</h1>
     <form action="/symptom/edit/<%= symptom.id %>" method="post">
         <input type="text" name="name" placeholder="name Disini" value="<%= symptom.name%>">
