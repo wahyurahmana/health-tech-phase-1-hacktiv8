@@ -3,9 +3,9 @@ class patientController {
   static findAll(req, res) {
     Patient.findAll({
       include: [Disease],
+      order: [["createdAt", "DESC"]],
     })
       .then((data) => {
-        // res.send(data);
         res.render("patient/showPatient", { data });
       })
       .catch((err) => res.send(err));
@@ -20,6 +20,7 @@ class patientController {
   }
 
   static addPatient(req, res) {
+    // console.log(req.body)
     let data = {
       name: req.body.name,
       nik: +req.body.nik,
@@ -29,7 +30,7 @@ class patientController {
     };
     Patient.create(data)
       .then(() => res.redirect("/patient"))
-      .catch((err) => res.send(err));
+      .catch((err) => console.log(err));
   }
 
   static formEdit(req, res) {

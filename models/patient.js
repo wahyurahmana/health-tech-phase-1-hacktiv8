@@ -25,6 +25,12 @@ module.exports = (sequelize, DataTypes) => {
     {
       sequelize,
       modelName: "Patient",
+      hooks: {
+        beforeCreate(app) {
+          app.status = "pending";
+          app.obat = null;
+        },
+      },
     }
   );
   return Patient;
