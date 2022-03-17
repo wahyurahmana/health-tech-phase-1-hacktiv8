@@ -29,7 +29,7 @@ module.exports = {
       DiseaseId: {
         type: Sequelize.INTEGER,
         references: {
-          model: "Patients",
+          model: "Diseases",
           key: "id",
         },
         onUpdate: "cascade",

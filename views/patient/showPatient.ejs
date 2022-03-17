@@ -75,13 +75,10 @@
         <td><%=el.address%></td>
         <td><%=el.status%></td>
         <td><%=el.Disease.name%></td>
-        <td><%=el.obat%></td>
+        <td><%=el.obat === null ? "EMPTY" : el.obat%></td>
         <td>
           <a href="/patient/<%= el.id %>/editPatient">
             <button class="button button1 editBtn">edit</button>
-          </a>
-          <a href="">
-            <button class="button button1 deleteBtn">delete</button>
           </a>
         </td>
       </tr>
