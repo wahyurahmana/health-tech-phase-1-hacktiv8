@@ -5,5 +5,12 @@
     "database": "db_healthTech_phase1",
     "host": "127.0.0.1",
     "dialect": "postgres"
+  },
+  "production": {
+    "username": "xmfbpsunaungaa",
+    "password": "a9c2c4493d0d205357f4644efa5a94c901626408b9975c974dd7971844ac103c",
+    "database": "dd5l8c0gfipunr",
+    "host": "ec2-52-202-77-95.compute-1.amazonaws.com",
+    "dialect": "postgres"
   }
 }
