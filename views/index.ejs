@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Welcome To The Health Tech</title>
+    <style>
+      body {
+        background-image: url("https://img.freepik.com/free-vector/clean-medical-patterned-background_53876-116871.jpg?w=1380");
+        background-size: cover;
+      }
+    </style>
+  </head>
+  <%- include ('./partials/header') %> <%- include ('./partials/navbar') %>
+  <body>
+    <!-- <img
+        src="https://img.freepik.com/free-vector/clean-medical-patterned-background_53876-116871.jpg?w=1380"
+        alt="Background Medical"
+      /> -->
+    <div
+      class="d-flex justify-content-center text-center"
+      style="padding-top: 200px"
+    >
+      <table class="table table-dark">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Disiase</th>
+            <th scope="col">Symptom</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% result.forEach((el, i) => { %>
+          <tr>
+            <td><%= i + 1 %></td>
+            <td><%= el.Disease.name %></td>
+            <td><%= el.Symptom.name %></td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

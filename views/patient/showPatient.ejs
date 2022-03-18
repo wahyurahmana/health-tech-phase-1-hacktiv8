@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Patient</title>
+    <style>
+      table {
+        border-collapse: collapse;
+        width: 100%;
+      }
+
+      th,
+      td {
+        padding: 8px;
+        text-align: left;
+        border-bottom: 1px solid #ddd;
+      }
+
+      tr:hover {
+        background-color: gray;
+      }
+      .button {
+        border-radius: 10px;
+        border: none;
+        color: white;
+        padding: 10px 25px;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        font-size: 16px;
+        margin: 6px 5px;
+        cursor: pointer;
+        -webkit-transition-duration: 0.4s; /* Safari */
+        transition-duration: 0.4s;
+      }
+
+      .button1:hover {
+        box-shadow: 0 12px 16px 0 rgba(0, 0, 0, 0.24),
+          0 17px 50px 0 rgba(0, 0, 0, 0.19);
+      }
+      .editBtn {
+        background-color: rgb(52, 144, 202);
+      }
+
+      .deleteBtn {
+        background-color: crimson;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>List Patient</h2>
+    <div style="margin: 20px">
+      <a href="/patient/addPatient"><button>Add New Patient</button></a>
+    </div>
+    <table>
+      <tr>
+        <th>No</th>
+        <th>Name Patient</th>
+        <th>NIK</th>
+        <th>Age</th>
+        <th>Address</th>
+        <th>Status</th>
+        <th>Disease</th>
+        <th>Obat</th>
+        <th>Last Arrived</th>
+        <th>Action</th>
+      </tr>
+      <% data.forEach((el, i) => { %>
+      <tr>
+        <td><%= i + 1 %></td>
+        <td><%=el.name%></td>
+        <td><%=el.nik%></td>
+        <td><%=el.age%></td>
+        <td><%=el.address%></td>
+        <td>
+          <% if (role === 'apotek') { %>
+              <form action="/patient/<%= el.id %>/pulang" method="post"><button type="submit">Selesai</button></form>
+          <% }else { %>
+              <%=el.status%>
+          <% } %>
+      </td>
+        <td><%=el.Disease.name%></td>
+        <td><%=el.obat === null ? "EMPTY" : el.obat%></td>
+        <td><%= dateId(el.updatedAt) %> </td>
+        <td>
+          <a href="/patient/<%= el.id %>/editPatient">
+            <button class="button button1 editBtn">edit</button>
+          </a>
+          <% if (role === "dokter") { %>
+            <a href="/patient/<%= el.id %>/checkUp">
+              <button class="button button1 editBtn">Check Up</button>
+            </a>
+          <% } %>
+        </td>
+      </tr>
+      <% }) %>
+    </table>
+  </body>
+</html>

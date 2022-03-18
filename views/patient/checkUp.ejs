@@ -1,0 +1,21 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CheckUp</title>
+</head>
+<body>
+    <form action="/patient/<%= data.id %>/checkUp" method="post">
+        <label>Status</label><br>
+        <select name="status">
+            <option value="selesai">Selesai</option>
+            <option value="obat">Ke Apotek</option>
+        </select><br><br>
+        <label>Obat</label><br>
+        <textarea name="obat"></textarea><br><br>
+        <button type="submit">Submit</button>
+    </form>
+</body>
+</html>

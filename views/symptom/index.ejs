@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <%- include ('../partials/header') %>
+
+    <title>Disease</title>
+    <style>
+      table {
+        width: 100%;
+        border-collapse: collapse;
+        /* margin-top: 100px; */
+      }
+      .styled-table {
+        border-collapse: collapse;
+        margin: 25px 0;
+        font-size: 0.9em;
+        font-family: sans-serif;
+        min-width: 400px;
+        box-shadow: 0 0 20px rgba(0, 0, 0, 0.15);
+      }
+
+      .styled-table thead tr {
+        background-color: #009879;
+        color: #ffffff;
+        text-align: left;
+      }
+      .styled-table th,
+      .styled-table td {
+        padding: 12px 15px;
+      }
+      styled-table tbody tr {
+        border-bottom: 1px solid #dddddd;
+      }
+
+      .styled-table tbody tr:nth-of-type(even) {
+        background-color: #f3f3f3;
+      }
+
+      .styled-table tbody tr:last-of-type {
+        border-bottom: 2px solid #009879;
+      }
+      .styled-table tbody tr.active-row {
+        font-weight: bold;
+        color: #616e6b;
+      }
+      h2 {
+        text-align: center;
+      }
+    </style>
+  </head>
+  <body>
+    <div style="margin-top: 70px">
+      <h2>List Symptom</h2>
+      <a href="/symptom/add" class="btn btn-primary btn-xs pull-right">
+        <b>+</b> Add new Symptom
+      </a>
+      <table class="styled-table">
+        <thead>
+          <tr>
+            <th>No</th>
+            <th>Name</th>
+            <th class="text-center">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% symptoms.forEach((el, i) => { %>
+          <tr class="active-row">
+            <td><%= i + 1 %></td>
+            <td><%= el.name %></td>
+            <td class="text-center">
+              <a href="/symptom/edit/<%= el.id %>" class="btn btn-info btn-xs"
+                ><span class="glyphicon glyphicon-edit"></span> Edit</a
+              >
+              <a
+                href="/symptom/delete/<%= el.id %>"
+                class="btn btn-danger btn-xs"
+                ><span class="glyphicon glyphicon-remove"></span> Delete</a
+              >
+            </td>
+          </tr>
+          <% }) %>
+        </tbody>
+      </table>
+    </div>
+  </body>
+</html>

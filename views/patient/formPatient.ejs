@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <style>
+      input[type="text"],
+      [type="number"] {
+        width: 100%;
+        padding: 12px 15px;
+        margin: 10px 0;
+        box-sizing: border-box;
+        border: 2px solid gray;
+        border-radius: 4px;
+      }
+      input[type="submit"] {
+        width: 100%;
+        background-color: #4caf50;
+        color: white;
+        padding: 14px 20px;
+        margin: 8px 0;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      }
+
+      input[type="submit"]:hover {
+        background-color: #45a049;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>Add New Patient</h2>
+
+    <form method="POST">
+      <label>Name Patient</label>
+      <input type="text" name="name" value="<%= patient ? patient.name : '' %> " />
+
+      <label>NIK</label>
+      <input type="text" name="nik" value="<%= patient ? patient.nik : '' %> " />
+
+      <label>Age</label>
+      <input type="text" name="age" value="<%= patient ? patient.age : '' %> " />
+
+      <label>Address</label>
+      <input type="text" name="address" value="<%= patient ? patient.address : '' %> " />
+
+      <label>Disease</label>
+      <select name="DiseaseId">
+      <% data.forEach(el => { %>
+        <option <%= el.id === patient.id ? "selected" : ''%> value="<%= el.id%>"><%= el.name%> </option>
+      <% }) %>
+      </select>
+      <input type="submit" value="Regist" />
+    </form>
+  </body>
+</html>

@@ -1,0 +1,53 @@
+<nav>
+  <div class="logo">
+    <p>MetaPus</p>
+  </div>
+  <ul>
+    <li><a href="" class="active">home</a></li>
+    <% if (role === 'dokter') { %>
+    <li><a href="/disease">Disease</a></li>
+    <li><a href="/symptom">Symptom</a></li>
+    <li><a href="symptomDisease">DISEASE AND SYMPTOM</a></li>
+    <li><a href="/patient">Patient</a></li>
+    <% } %> <% if (role === 'loket' || role === 'apotek') { %>
+    <li><a href="/patient">Patient</a></li>
+    <% } %> <% if (!isLoggednIn) { %>
+    <li><a href="/auth/register">REGISTER</a></li>
+    <li><a href="/auth/login">Login</a></li>
+    <% } %> <% if (isLoggednIn === true) { %>
+    <li><a href="/auth/logout">Logout</a></li>
+    <% } %>
+    <li>Welcome <%= role %></li>
+  </ul>
+</nav>
+
+<!-- <nav class="navbar navbar-expand-lg navbar-light bg-#48ABB4">
+  <button
+    class="navbar-toggler"
+    type="button"
+    data-toggle="collapse"
+    data-target="#navbarTogglerDemo03"
+    aria-controls="navbarTogglerDemo03"
+    aria-expanded="false"
+    aria-label="Toggle navigation"
+  >
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <a class="navbar-brand" href="#">Navbar</a>
+
+  <div class="collapse navbar-collapse" id="navbarTogglerDemo03">
+    <ul class="navbar-nav ms-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#"
+          >Home <span class="sr-only">(current)</span></a
+        >
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Link</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+    </ul>
+  </div>
+</nav> -->
