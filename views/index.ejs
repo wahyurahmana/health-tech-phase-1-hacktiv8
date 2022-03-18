@@ -25,7 +25,12 @@
             <th>Penyakit</th>
             <th>Gejala</th>
         </tr>
-        
+        <% result.forEach(el => { %>
+         <tr>
+             <td><%= el.Disease.name %> </td>
+             <td><%= el.Symptom.name %> </td>
+         </tr>
+        <% }) %>
     </table>
 </body>
 </html>
