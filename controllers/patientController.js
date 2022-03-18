@@ -1,10 +1,11 @@
 const { Patient, Disease } = require("../models");
+const dateId = require('../helpers/dateId.js')
 class patientController {
 
   static findAll(req, res) {
     Patient.showPasient(req.session.role)
     .then((data) => {
-      res.render("patient/showPatient", { data , role :req.session.role});
+      res.render("patient/showPatient", { data , role :req.session.role, dateId});
     }).catch((err) => {
       res.send(err)
     });

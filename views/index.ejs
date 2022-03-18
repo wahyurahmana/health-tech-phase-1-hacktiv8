@@ -12,14 +12,27 @@
         opacity: 0.8;
       }
     </style>
-    <%- include ('./partials/navbar') %> <%- include ('./partials/header') %>
   </head>
+  <%- include ('./partials/header') %> 
+  <%- include ('./partials/navbar') %>
   <body>
     <div class="image">
       <img
         src="https://img.freepik.com/free-vector/clean-medical-patterned-background_53876-116871.jpg?w=1380"
         alt="Background Medical"
       />
+      <table border="1">
+        <tr>
+          <th>Penyakit</th>
+          <th>Gejala</th>
+        </tr>
+        <% result.forEach(el => { %>
+         <tr>
+           <td><%= el.Disease.name %> </td>
+           <td><%= el.Symptom.name %> </td>
+         </tr>
+        <% }) %>
+      </table>
     </div>
   </body>
 </html>

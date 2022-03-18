@@ -64,6 +64,7 @@
         <th>Status</th>
         <th>Disease</th>
         <th>Obat</th>
+        <th>Last Arrived</th>
         <th>Action</th>
       </tr>
       <% data.forEach((el, i) => { %>
@@ -82,6 +83,7 @@
       </td>
         <td><%=el.Disease.name%></td>
         <td><%=el.obat === null ? "EMPTY" : el.obat%></td>
+        <td><%= dateId(el.updatedAt) %> </td>
         <td>
           <a href="/patient/<%= el.id %>/editPatient">
             <button class="button button1 editBtn">edit</button>
