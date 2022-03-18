@@ -6,32 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Welcome To The Health Tech</title>
     <style>
-      .image img {
-        width: 100%;
-        height: 0px auto;
-        opacity: 0.8;
+      body {
+        background-image: url("https://img.freepik.com/free-vector/clean-medical-patterned-background_53876-116871.jpg?w=1380");
+        background-size: cover;
       }
     </style>
   </head>
-  <%- include ('./partials/header') %> 
-  <%- include ('./partials/navbar') %>
+  <%- include ('./partials/header') %> <%- include ('./partials/navbar') %>
   <body>
-    <div class="image">
-      <img
+    <!-- <img
         src="https://img.freepik.com/free-vector/clean-medical-patterned-background_53876-116871.jpg?w=1380"
         alt="Background Medical"
-      />
-      <table border="1">
-        <tr>
-          <th>Penyakit</th>
-          <th>Gejala</th>
-        </tr>
-        <% result.forEach(el => { %>
-         <tr>
-           <td><%= el.Disease.name %> </td>
-           <td><%= el.Symptom.name %> </td>
-         </tr>
-        <% }) %>
+      /> -->
+    <div
+      class="d-flex justify-content-center text-center"
+      style="padding-top: 200px"
+    >
+      <table class="table table-dark">
+        <thead class="thead-light">
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Disiase</th>
+            <th scope="col">Symptom</th>
+          </tr>
+        </thead>
+        <tbody>
+          <% result.forEach((el, i) => { %>
+          <tr>
+            <td><%= i + 1 %></td>
+            <td><%= el.Disease.name %></td>
+            <td><%= el.Symptom.name %></td>
+          </tr>
+          <% }) %>
+        </tbody>
       </table>
     </div>
   </body>
