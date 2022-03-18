@@ -4,29 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Edit Symptom</title>
-</head>
-<body>
-    <p></p>
-    <h1>Edit Form Symptom</h1>
-    <form action="/symptom/edit/<%= symptom.id %>" method="post">
-      <input
-        type="text"
-        name="name"
-        placeholder="name Disini"
-        value="<%= symptom.name%>"
-      />
-      <button type="submit">updated</button>
-    </form>
-  </body>
-</html>
-
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Edit Diseases</title>
     <style type="text/css">
       .form-style-2 {
@@ -114,7 +91,7 @@
   <body>
     <div class="form-style-2">
       <div class="form-style-2-heading">Add Disease</div>
-      <form action="/symptom/edit/<%= disease.id %>" method="post">
+      <form action="/symptom/edit/<%= symptom.id %>" method="post">
         <label for="name"
           ><span>Name <span class="required">*</span></span
           ><input
