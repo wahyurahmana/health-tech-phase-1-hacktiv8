@@ -7,9 +7,9 @@
     "dialect": "postgres"
   },
   "production": {
-    "username": "ubasyvppcrakxr",
-    "password": "4d854143b2ea4a8993fbebcb156e2e55f08e320d21b6cc30babaf0c99ae457aa",
-    "database": "dd0pj3cukk2skl",
+    "username": "qvzgcefoifiwqw",
+    "password": "032551d6dabc2168c0595fea0bedf05a9cfb1a315c2ee204dac3b8988c998972",
+    "database": "d1cuetkrtuhpat",
     "host": "ec2-3-222-204-187.compute-1.amazonaws.com",
     "dialect": "postgres"
   }
