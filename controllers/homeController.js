@@ -39,7 +39,7 @@ class Controller {
             })
             .then((result) => {
                 //res.send(result)
-                res.render('index', {result, uname : req.session.username})
+                res.render('index', {result, uname : req.session.username, role : req.session.role, isLoggednIn : req.session.isLoggedIn})
             }).catch((err) => {
                 res.send(err)
             });

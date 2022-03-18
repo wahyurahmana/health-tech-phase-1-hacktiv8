@@ -32,7 +32,8 @@ module.exports = (sequelize, DataTypes) => {
     password: {
       type : DataTypes.STRING,
       validate : {
-        notEmpty : {msg : 'Password Tidak Boleh Kosong'}
+        notEmpty : {msg : 'Password Tidak Boleh Kosong'},
+        len : [8, 12]
       }
     },
     role: DataTypes.STRING
