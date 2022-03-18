@@ -1,14 +1,16 @@
 {
+  "development": {
+    "username": "postgres",
+    "password": "postgres",
+    "database": "db_healthTech_phase1",
+    "host": "127.0.0.1",
+    "dialect": "postgres"
+  },
   "production": {
-    "use_env_variable": "DATABASE_URL",
-    "ssl": true,
-    "dialect": "postgres",
-    "protocol": "postgres",
-    "dialectOptions": {
-      "ssl": {
-        "require": true,
-        "rejectUnauthorized": false
-      }
-    }
+    "username": "qvzgcefoifiwqw",
+    "password": "032551d6dabc2168c0595fea0bedf05a9cfb1a315c2ee204dac3b8988c998972",
+    "database": "d1cuetkrtuhpat",
+    "host": "ec2-3-222-204-187.compute-1.amazonaws.com",
+    "dialect": "postgres"
   }
 }
